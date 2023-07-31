@@ -9,7 +9,7 @@
                 <String label="SalesPerson" v-model="item.salesPerson" :editMode="editMode" @change="change" />
             </div>
             <SalesType offline label="SalesType" v-model="item.salesType" :editMode="false" :key="false" @change="change" />
-            <SalesItemManager offline label="SalesItem" v-model="item.salesItem" :editMode="false" @change="change" />
+            <SalesItemManager offline label="SalesItems" v-model="item.salesItems" :editMode="false" @change="change" />
             <CompanyId offline label="CompanyId" v-model="item.companyId" :editMode="false" :key="false" @change="change" />
         </v-card-text>
 

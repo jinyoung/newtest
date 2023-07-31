@@ -11,16 +11,12 @@
                     <String class="attributes-list" label="입력하세요." v-model="value.parameters.name" :editMode="editMode"/>
                 </v-col>
                 <v-col style="max-width:140px;">
-                    <div class="search-label">Phone</div>
-                    <String class="attributes-list" label="입력하세요." v-model="value.parameters.phone" :editMode="editMode"/>
+                    <div class="search-label">Industry</div>
+                    <String class="attributes-list" label="입력하세요." v-model="value.parameters.industry" :editMode="editMode"/>
                 </v-col>
                 <v-col style="max-width:140px;">
-                    <div class="search-label">Test</div>
-                    <String class="attributes-list" label="입력하세요." v-model="value.parameters.test" :editMode="editMode"/>
-                </v-col>
-                <v-col style="max-width:140px;">
-                    <div class="search-label">Test2</div>
-                    <String class="attributes-list" label="입력하세요." v-model="value.parameters.test2" :editMode="editMode"/>
+                    <div class="search-label">FoundedDate</div>
+                    <Date class="attributes-list" label="입력하세요." v-model="value.parameters.foundedDate" :editMode="editMode"/>
                 </v-col>
                 <v-col>
                     <v-btn class="gs-query-search-btn"
@@ -51,16 +47,15 @@
         }),
         created() {
             this.value.parameters.name = '';
-            this.value.parameters.phone = '';
-            this.value.parameters.test = '';
-            this.value.parameters.test2 = '';
+            this.value.parameters.industry = '';
+            this.value.parameters.foundedDate = (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10);
         },
         watch: {
         },
         methods: {
             search() {
                 let search = null;
-                if(this.value.parameters.name == ''  && this.value.parameters.phone == ''  && this.value.parameters.test == ''  && this.value.parameters.test2 == '' ) {
+                if(this.value.parameters.name == ''  && this.value.parameters.industry == ''  && this.value.parameters.foundedDate == '' ) {
                     search = null;
                 }else{
                     search = this.value;

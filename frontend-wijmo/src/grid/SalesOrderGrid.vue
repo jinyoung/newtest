@@ -30,7 +30,7 @@
             style="margin-top:10px; max-height:65vh;"
             class="wj-felx-grid"
         >
-            <wj-flex-grid-filter :filterColumns="['salesPerson','salesType','salesItem','companyId',]" />
+            <wj-flex-grid-filter :filterColumns="['salesPerson','salesType','salesItems','companyId',]" />
             <wj-flex-grid-column binding="index" header="Number" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="salesPerson" header="salesPerson" width="2*" :isReadOnly="true" align="center" />
             <wj-flex-grid-column binding="salesType" header="salesType" width="2*" :isReadOnly="true" align="center" />

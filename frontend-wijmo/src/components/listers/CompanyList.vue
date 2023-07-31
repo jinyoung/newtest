@@ -101,7 +101,7 @@
             this.newValue = {
                 'name': '',
                 'industry': '',
-                'foundedDate': '2023-07-23',
+                'foundedDate': '2023-07-31',
             }
         },
         methods: {

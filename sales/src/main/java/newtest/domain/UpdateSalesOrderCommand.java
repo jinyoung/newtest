@@ -1,18 +1,15 @@
 package newtest.domain;
 
-import javax.persistence.*;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.*;
 import lombok.Data;
-
 
 @Data
 public class UpdateSalesOrderCommand {
 
-        private String salesPerson;
-        private String companyId;
-        private String salesType;
-        private List&lt;SalesItem&gt; salesItems;
-
-
+    private String salesPerson;
+    private String companyId;
+    private String salesType;
+    private List<SalesItem> salesItems;
 }

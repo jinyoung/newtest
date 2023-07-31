@@ -1,26 +1,26 @@
 package newtest.domain;
 
-import javax.persistence.*;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.*;
 import lombok.Data;
-
 
 @Data
 public class CreateSalesOrderCommand {
 
-        @Id
-        //@GeneratedValue(strategy=GenerationType.AUTO)
-        private String salesPerson;
-        @Id
-        //@GeneratedValue(strategy=GenerationType.AUTO)
-        private String companyId;
-        @Id
-        //@GeneratedValue(strategy=GenerationType.AUTO)
-        private String salesType;
-        @Id
-        //@GeneratedValue(strategy=GenerationType.AUTO)
-        private List&lt;SalesItem&gt; salesItems;
+    @Id
+    //@GeneratedValue(strategy=GenerationType.AUTO)
+    private String salesPerson;
 
+    @Id
+    //@GeneratedValue(strategy=GenerationType.AUTO)
+    private String companyId;
 
+    @Id
+    //@GeneratedValue(strategy=GenerationType.AUTO)
+    private String salesType;
+
+    @Id
+    //@GeneratedValue(strategy=GenerationType.AUTO)
+    private List<SalesItem> salesItems;
 }

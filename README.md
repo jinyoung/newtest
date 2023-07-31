@@ -37,7 +37,7 @@ mvn spring-boot:run
 ```
 - sales
 ```
- http :8088/salesOrders id="id" salesPerson="salesPerson" salesType="salesType" salesItem="salesItem" companyId="companyId" 
+ http :8088/salesOrders id="id" salesPerson="salesPerson" salesType="salesType" salesItems="salesItems" companyId="companyId" 
 ```
 
 

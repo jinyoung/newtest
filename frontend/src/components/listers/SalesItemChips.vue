@@ -12,9 +12,6 @@
                     <v-list-item-content>
                         <v-list-item-title>Message {{idx+1}}</v-list-item-title>
                         <v-list-item-subtitle>
-                            ProductId :  {{item.productId }} <br>
-                            Quantity :  {{item.quantity }} <br>
-                            Price :  {{item.price }} <br>
                         </v-list-item-subtitle>
                     </v-list-item-content>
                     <v-list-item-action v-if="editMode">

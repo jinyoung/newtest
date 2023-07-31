@@ -12,11 +12,4 @@ import org.springframework.beans.BeanUtils;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SalesItem {
-
-    private String productId;
-
-    private int quantity;
-
-    private double price;
-}
+public class SalesItem {}

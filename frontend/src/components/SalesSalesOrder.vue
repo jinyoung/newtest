@@ -18,7 +18,7 @@
         <v-card-text>
             <String label="판매담당자" v-model="value.salesPerson" :editMode="editMode" :inputUI="'TEXT'"/>
             <SalesType offline label="" v-model="value.salesType" :editMode="editMode" @change="change"/>
-            <SalesItemManager offline label="" v-model="value.salesItem" :editMode="editMode" @change="change"/>
+            <SalesItemManager offline label="" v-model="value.salesItems" :editMode="editMode" @change="change"/>
             <CompanyId offline label="" v-model="value.companyId" :editMode="editMode" @change="change"/>
         </v-card-text>
 
@@ -39,6 +39,13 @@
                     @click="save"
                 >
                     판매 수주 생성
+                </v-btn>
+                <v-btn
+                    color="primary"
+                    text
+                    @click="save"
+                >
+                    판매 수주 업데이트
                 </v-btn>
                 <v-btn
                     color="primary"
@@ -67,20 +74,6 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn
-                v-if="!editMode"
-                color="primary"
-                text
-                @click="openUpdateSalesOrder"
-            >
-                UpdateSalesOrder
-            </v-btn>
-            <v-dialog v-model="updateSalesOrderDiagram" width="500">
-                <UpdateSalesOrderCommand
-                    @closeDialog="closeUpdateSalesOrder"
-                    @updateSalesOrder="updateSalesOrder"
-                ></UpdateSalesOrderCommand>
-            </v-dialog>
         </v-card-actions>
 
         <v-snackbar
@@ -118,7 +111,6 @@
                 timeout: 5000,
                 text: ''
             },
-            updateSalesOrderDiagram: false,
         }),
         computed:{
         },
@@ -216,17 +208,16 @@
             change(){
                 this.$emit('input', this.value);
             },
-            async updateSalesOrder(params) {
+            async () {
                 try {
                     if(!this.offline) {
-                        var temp = await axios.put(axios.fixUrl(this.value._links['/sales/{id}'].href), params)
+                        var temp = await axios.put(axios.fixUrl(this.value._links[''].href))
                         for(var k in temp.data) {
                             this.value[k]=temp.data[k];
                         }
                     }
 
                     this.editMode = false;
-                    this.closeUpdateSalesOrder();
                 } catch(e) {
                     this.snackbar.status = true
                     if(e.response && e.response.data.message) {
@@ -235,12 +226,6 @@
                         this.snackbar.text = e
                     }
                 }
-            },
-            openUpdateSalesOrder() {
-                this.updateSalesOrderDiagram = true;
-            },
-            closeUpdateSalesOrder() {
-                this.updateSalesOrderDiagram = false;
             },
         },
     }

@@ -7,6 +7,7 @@ import lombok.Data;
 import newtest.SalesApplication;
 import newtest.domain.SalesOrderCreated;
 import newtest.domain.SalesOrderDeleted;
+import newtest.domain.SalesOrderUpdated;
 
 @Entity
 @Table(name = "SalesOrder_table")
@@ -21,7 +22,7 @@ public class SalesOrder {
     private SalesType salesType;
 
     @ElementCollection
-    private List<SalesItem> salesItem;
+    private List<SalesItem> salesItems;
 
     @Embedded
     private CompanyId companyId;
@@ -31,6 +32,9 @@ public class SalesOrder {
         SalesOrderCreated salesOrderCreated = new SalesOrderCreated(this);
         salesOrderCreated.publishAfterCommit();
 
+        SalesOrderUpdated salesOrderUpdated = new SalesOrderUpdated(this);
+        salesOrderUpdated.publishAfterCommit();
+
         SalesOrderDeleted salesOrderDeleted = new SalesOrderDeleted(this);
         salesOrderDeleted.publishAfterCommit();
     }
@@ -38,19 +42,13 @@ public class SalesOrder {
     @PrePersist
     public void onPrePersist() {}
 
+    @PreUpdate
+    public void onPreUpdate() {}
+
     public static SalesOrderRepository repository() {
         SalesOrderRepository salesOrderRepository = SalesApplication.applicationContext.getBean(
             SalesOrderRepository.class
         );
         return salesOrderRepository;
-    }
-
-    public void updateSalesOrder(
-        UpdateSalesOrderCommand updateSalesOrderCommand
-    ) {
-        //implement business logic here:
-
-        SalesOrderUpdated salesOrderUpdated = new SalesOrderUpdated(this);
-        salesOrderUpdated.publishAfterCommit();
     }
 }

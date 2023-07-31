@@ -43,6 +43,7 @@ public class Company {
         //implement business logic here:
 
         CompanyUpdated companyUpdated = new CompanyUpdated(this);
+        companyUpdated.set(updateCompanyCommand.get());
         companyUpdated.publishAfterCommit();
     }
 }

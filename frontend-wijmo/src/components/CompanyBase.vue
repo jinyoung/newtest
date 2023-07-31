@@ -73,7 +73,7 @@
                 } 
                 var temp = null;
                 if(query!=null){
-                    temp = await axios.put(axios.fixUrl('/companies/search/'), { name: query.parameters.name, phone: query.parameters.phone, test: query.parameters.test, test2: query.parameters.test2 });
+                    temp = await axios.put(axios.fixUrl('/companies/search/'), { name: query.parameters.name, industry: query.parameters.industry, foundedDate: query.parameters.foundedDate });
                     me.values = await me.processData(temp.data);
                 }else{
                     temp = await axios.get(axios.fixUrl('/companies'))

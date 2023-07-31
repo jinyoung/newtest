@@ -6,9 +6,6 @@
         </v-card-title>
 
         <v-card-text>
-            <String label="ProductId" v-model="value.productId" :editMode="editMode"/>
-            <int offline label="Quantity" v-model="value.quantity" :editMode="editMode" @change="change"/>
-            <double offline label="Price" v-model="value.price" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions v-if="inList">
@@ -36,15 +33,9 @@
             if(!Object.values(this.value)[0]) {
                 this.$emit('input', {});
                 this.newValue = {
-                    'productId': '',
-                    'quantity': '',
-                    'price': '',
                 }
             }
             if(typeof this.value === 'object') {
-                if(!('productId' in this.value)) {
-                    this.value.productId = '';
-                }
             }
         },
         watch: {

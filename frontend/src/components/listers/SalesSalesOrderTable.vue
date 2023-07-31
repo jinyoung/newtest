@@ -69,7 +69,7 @@
                     { text: "id", value: "id" },
                     { text: "salesPerson", value: "salesPerson" },
                     { text: "salesType", value: "salesType" },
-                    { text: "salesItem", value: "salesItem" },
+                    { text: "salesItems", value: "salesItems" },
                     { text: "companyId", value: "companyId" },
                 ],
             salesOrder : [],
@@ -90,7 +90,7 @@
             this.newValue = {
                 'salesPerson': '',
                 'salesType': '',
-                'salesItem': [],
+                'salesItems': [],
                 'companyId': {},
             }
         },

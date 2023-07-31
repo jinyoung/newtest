@@ -112,7 +112,7 @@
             me.newValue = {
                 'salesPerson': '',
                 'salesType': '',
-                'salesItem': [],
+                'salesItems': [],
                 'companyId': {},
             }
         },

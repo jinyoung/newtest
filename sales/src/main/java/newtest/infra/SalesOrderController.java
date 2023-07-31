@@ -17,28 +17,4 @@ public class SalesOrderController {
 
     @Autowired
     SalesOrderRepository salesOrderRepository;
-
-    @RequestMapping(
-        value = "salesOrders/{id}//sales/{id}",
-        method = RequestMethod.PUT,
-        produces = "application/json;charset=UTF-8"
-    )
-    public SalesOrder updateSalesOrder(
-        @PathVariable(value = "id") String id,
-        @RequestBody UpdateSalesOrderCommand updateSalesOrderCommand,
-        HttpServletRequest request,
-        HttpServletResponse response
-    ) throws Exception {
-        System.out.println("##### /salesOrder/updateSalesOrder  called #####");
-        Optional<SalesOrder> optionalSalesOrder = salesOrderRepository.findById(
-            id
-        );
-
-        optionalSalesOrder.orElseThrow(() -> new Exception("No Entity Found"));
-        SalesOrder salesOrder = optionalSalesOrder.get();
-        salesOrder.updateSalesOrder(updateSalesOrderCommand);
-
-        salesOrderRepository.save(salesOrder);
-        return salesOrder;
-    }
 }

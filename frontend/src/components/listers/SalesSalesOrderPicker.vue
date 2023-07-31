@@ -21,7 +21,7 @@
                                 SalesType :  {{item.salesType }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
-                                SalesItem :  {{item.salesItem }}
+                                SalesItems :  {{item.salesItems }}
                             </v-list-item-subtitle>
                             <v-list-item-subtitle>
                                 CompanyId :  {{item.companyId }}

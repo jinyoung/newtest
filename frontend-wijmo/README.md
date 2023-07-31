@@ -2,7 +2,9 @@
 
 ## Project setup
 ```
-npm install
+npm install --save core-js/modules/es.array.push.js core-js/modules/es.array.reduce.js core-js/modules/es.error.cause.js core-js/modules/web.dom-exception.stack.js core-js/modules/web.url-search-params.delete.js core-js/modules/web.url-search-params.has.js core-js/modules/web.url-search-params.size.js rsocket-core rsocket-core/build
+
+npm i -D webpack@^4.0.0
 ```
 
 ### Compiles and hot-reloads for development
@@ -20,5 +22,8 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### If you confront an ENVELOP Error something
+```
+export NODE_OPTIONS=--openssl-legacy-provider
+```
+... and try again

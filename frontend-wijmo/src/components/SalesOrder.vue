@@ -23,7 +23,7 @@
         </div>
 
         <div>
-            <SalesItemManager offline label="SalesItem" v-model="value.salesItem" :editMode="editMode" @change="change"/>
+            <SalesItemManager offline label="SalesItems" v-model="value.salesItems" :editMode="editMode" @change="change"/>
         </div>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>
@@ -79,7 +79,6 @@ export default {
             timeout: 5000,
             text: ''
         },
-        updateSalesOrderDiagram: false,
     }),
     created(){
         if(this.isNew) return;
@@ -245,31 +244,6 @@ export default {
         },
         change(){
             this.$emit('input', this.value);
-        },
-        async updateSalesOrder(params) {
-            try {
-                if(!this.offline) {
-                    var temp = await axios.put(axios.fixUrl(this.value._links['/sales/{id}'].href), params)
-                    for(var k in temp.data) {
-                        this.value[k]=temp.data[k];
-                    }
-                }
-                this.editMode = false;
-                this.closeUpdateSalesOrder();
-            } catch(e) {
-                this.snackbar.status = true
-                if(e.response && e.response.data.message) {
-                    this.snackbar.text = e.response.data.message
-                } else {
-                    this.snackbar.text = e
-                }
-            }
-        },
-        openUpdateSalesOrder() {
-            this.updateSalesOrderDiagram = true;
-        },
-        closeUpdateSalesOrder() {
-            this.updateSalesOrderDiagram = false;
         },
     },
 }

@@ -3,7 +3,6 @@
 </template>
 
 <script>
-    import CompanyBase from '../components/CompanyBase.vue'
     const axios = require('axios').default;
 
     export default{
@@ -54,15 +53,10 @@
                 }
             },
             async processData(data){
-                let CompanyClass = this.$Vue.extend(CompanyBase);
-                this.companyId = new CompanyClass();
                 
 
                 let Promises = data.map(async (value) => {
                     if(value == null) return
-                    if (value.companyId && value.companyId.id){
-                        value.companyId = await this.companyId.getRealEntity(value.companyId.id);
-                    }
                 });
                 await Promise.all(Promises);
                 for(var i = 0; i < data.length ; i++ ) {
